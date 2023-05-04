@@ -6,11 +6,9 @@ TEST:
 CORRUPTION:
   DATASET: cifar10
   SEVERITY:
-    - 5
-    - 4
-    - 3
-    - 2
     - 1
+    - 5
+
   TYPE:
     - gaussian_noise
     - shot_noise

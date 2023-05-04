@@ -3,7 +3,7 @@ import logging
 import torch
 import torch.optim as optim
 
-from robustbench.data import load_cifar10c
+from robustbench.data import load_cifar10c, load_cifar10
 from robustbench.model_zoo.enums import ThreatModel
 from robustbench.utils import load_model
 from robustbench.utils import clean_accuracy as accuracy
@@ -18,6 +18,8 @@ from conf import cfg, load_cfg_fom_args
 
 logger = logging.getLogger(__name__)
 
+
+# export CUDA_VISIBLE_DEVICES=2
 
 def evaluate(description):
     load_cfg_fom_args(description)
@@ -36,16 +38,23 @@ def evaluate(description):
     if cfg.MODEL.ADAPTATION == "eata":
         logger.info("test-time adaptation: EATA")
         model = setup_eata(base_model)
+
+    logger.info("not resetting model: continual learning")
     # evaluate on each severity and type of corruption in turn
+    # x_test_clean, y_test_clean = load_cifar10(cfg.CORRUPTION.NUM_EX,
+    #                                       cfg.DATA_DIR)
+    # x_test_clean, y_test_clean = x_test_clean.cuda(), y_test_clean.cuda()
     for severity in cfg.CORRUPTION.SEVERITY:
         for corruption_type in cfg.CORRUPTION.TYPE:
             # reset adaptation for each combination of corruption x severity
             # note: for evaluation protocol, but not necessarily needed
-            try:
-                model.reset() # with this, it's not continual learning
-                logger.info("resetting model")
-            except:
-                logger.warning("not resetting model")
+
+            # try:
+            #     model.reset() # with this, it's not continual learning
+            #     logger.info("resetting model")
+            # except:
+            #     logger.warning("not resetting model")
+            
             x_test, y_test = load_cifar10c(cfg.CORRUPTION.NUM_EX,
                                            severity, cfg.DATA_DIR, False,
                                            [corruption_type])
@@ -54,6 +63,9 @@ def evaluate(description):
             err = 1. - acc
             logger.info(f"error % [{corruption_type}{severity}]: {err:.2%}")
 
+            # acc = accuracy(model, x_test_clean, y_test_clean, cfg.TEST.BATCH_SIZE)
+            # err = 1. - acc
+            # logger.info(f"error % [clean]: {err:.2%}")
 
 def setup_source(model):
     """Set up the baseline source model without adaptation."""
@@ -98,7 +110,7 @@ def setup_eata(model):
     model = eata.configure_model(model)
     params, param_names = eata.collect_params(model)
     optimizer = setup_optimizer(params)
-    eata_model = eata.Eata(model, optimizer,
+    eata_model = eata.EATA(model, optimizer,
                            steps=cfg.OPTIM.STEPS,
                            episodic=cfg.MODEL.EPISODIC)
     logger.info(f"model for adaptation: %s", model)

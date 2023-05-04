@@ -2,15 +2,15 @@ MODEL:
   ADAPTATION: tent
   ARCH: Standard
 TEST:
-  BATCH_SIZE: 200
+  BATCH_SIZE: 64
 CORRUPTION:
   DATASET: cifar10
   SEVERITY:
-    - 5
-    - 4
-    - 3
-    - 2
     - 1
+    - 2
+    - 3
+    - 4
+    - 5
   TYPE:
     - gaussian_noise
     - shot_noise
@@ -28,8 +28,8 @@ CORRUPTION:
     - pixelate
     - jpeg_compression
 OPTIM:
-  METHOD: Adam
+  METHOD: SGD
   STEPS: 1
   BETA: 0.9
-  LR: 1e-3
+  LR: 0.005
   WD: 0.
