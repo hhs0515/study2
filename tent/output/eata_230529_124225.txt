@@ -1,0 +1,467 @@
+[23/05/29 12:42:25] [conf.py:  210]: PyTorch Version: torch=1.8.1+cu102, cuda=10.2, cudnn=7605
+[23/05/29 12:42:25] [conf.py:  211]: BN:
+  EPS: 1e-05
+  MOM: 0.1
+CKPT_DIR: ./ckpt
+CORRUPTION:
+  DATASET: cifar10
+  NUM_EX: 10000
+  SEVERITY: [5]
+  TYPE: ['glass_blur', 'gaussian_noise', 'shot_noise']
+CUDNN:
+  BENCHMARK: True
+DATA_DIR: ./data
+DESC: 
+LOG_DEST: eata_230529_124225.txt
+LOG_TIME: 230529_124225
+MODEL:
+  ADAPTATION: eata
+  ARCH: Standard
+  EPISODIC: False
+OPTIM:
+  BETA: 0.9
+  DAMPENING: 0.0
+  LR: 0.01
+  METHOD: SGD
+  MOMENTUM: 0.9
+  NESTEROV: True
+  STEPS: 1
+  WD: 0.0
+RNG_SEED: 1
+SAVE_DIR: ./output
+TEST:
+  BATCH_SIZE: 200
+[23/05/29 12:42:29] [cifar10c.py:   39]: test-time adaptation: EATA
+[23/05/29 12:42:29] [cifar10c.py:  121]: model for adaptation: StandardNet(
+  (conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (block1): NetworkBlock(
+    (layer): Sequential(
+      (0): BasicBlock(
+        (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(16, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (convShortcut): Conv2d(16, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      )
+      (1): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (2): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (3): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+  )
+  (block2): NetworkBlock(
+    (layer): Sequential(
+      (0): BasicBlock(
+        (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 320, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (convShortcut): Conv2d(160, 320, kernel_size=(1, 1), stride=(2, 2), bias=False)
+      )
+      (1): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (2): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (3): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+  )
+  (block3): NetworkBlock(
+    (layer): Sequential(
+      (0): BasicBlock(
+        (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 640, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (convShortcut): Conv2d(320, 640, kernel_size=(1, 1), stride=(2, 2), bias=False)
+      )
+      (1): BasicBlock(
+        (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (2): BasicBlock(
+        (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (3): BasicBlock(
+        (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+  )
+  (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+  (relu): ReLU(inplace=True)
+  (fc): Linear(in_features=640, out_features=10, bias=True)
+)
+[23/05/29 12:42:29] [cifar10c.py:  122]: params for adaptation: ['block1.layer.0.bn1.weight', 'block1.layer.0.bn1.bias', 'block1.layer.0.bn2.weight', 'block1.layer.0.bn2.bias', 'block1.layer.1.bn1.weight', 'block1.layer.1.bn1.bias', 'block1.layer.1.bn2.weight', 'block1.layer.1.bn2.bias', 'block1.layer.2.bn1.weight', 'block1.layer.2.bn1.bias', 'block1.layer.2.bn2.weight', 'block1.layer.2.bn2.bias', 'block1.layer.3.bn1.weight', 'block1.layer.3.bn1.bias', 'block1.layer.3.bn2.weight', 'block1.layer.3.bn2.bias', 'block2.layer.0.bn1.weight', 'block2.layer.0.bn1.bias', 'block2.layer.0.bn2.weight', 'block2.layer.0.bn2.bias', 'block2.layer.1.bn1.weight', 'block2.layer.1.bn1.bias', 'block2.layer.1.bn2.weight', 'block2.layer.1.bn2.bias', 'block2.layer.2.bn1.weight', 'block2.layer.2.bn1.bias', 'block2.layer.2.bn2.weight', 'block2.layer.2.bn2.bias', 'block2.layer.3.bn1.weight', 'block2.layer.3.bn1.bias', 'block2.layer.3.bn2.weight', 'block2.layer.3.bn2.bias', 'block3.layer.0.bn1.weight', 'block3.layer.0.bn1.bias', 'block3.layer.0.bn2.weight', 'block3.layer.0.bn2.bias', 'block3.layer.1.bn1.weight', 'block3.layer.1.bn1.bias', 'block3.layer.1.bn2.weight', 'block3.layer.1.bn2.bias', 'block3.layer.2.bn1.weight', 'block3.layer.2.bn1.bias', 'block3.layer.2.bn2.weight', 'block3.layer.2.bn2.bias', 'block3.layer.3.bn1.weight', 'block3.layer.3.bn1.bias', 'block3.layer.3.bn2.weight', 'block3.layer.3.bn2.bias', 'bn1.weight', 'bn1.bias']
+[23/05/29 12:42:29] [cifar10c.py:  123]: optimizer for adaptation: SGD (
+Parameter Group 0
+    dampening: 0.0
+    lr: 0.01
+    momentum: 0.9
+    nesterov: True
+    weight_decay: 0.0
+)
+[23/05/29 12:42:29] [cifar10c.py:   42]: not resetting model: continual learning
+[23/05/29 12:42:32] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.05033294856548309
+[23/05/29 12:42:34] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.0338427796959877
+[23/05/29 12:42:36] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.025699082762002945
+[23/05/29 12:42:37] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.04960228502750397
+[23/05/29 12:42:39] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.07153674960136414
+[23/05/29 12:42:40] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.02552057057619095
+[23/05/29 12:42:42] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.0619131475687027
+[23/05/29 12:42:43] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.06483413279056549
+[23/05/29 12:42:45] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.01459372416138649
+[23/05/29 12:42:46] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.044629573822021484
+[23/05/29 12:42:48] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.040822796523571014
+[23/05/29 12:42:49] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.040007635951042175
+[23/05/29 12:42:51] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.04726144298911095
+[23/05/29 12:42:52] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.027066027745604515
+[23/05/29 12:42:54] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.023646771907806396
+[23/05/29 12:42:55] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.042639799416065216
+[23/05/29 12:42:57] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.07200316339731216
+[23/05/29 12:42:58] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.01697360724210739
+[23/05/29 12:43:00] [eata.py:  144]: block3.layer.0.bn2.weight grad: 0.009324907325208187
+[23/05/29 12:43:01] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.0600336492061615
+[23/05/29 12:43:03] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.055563341826200485
+[23/05/29 12:43:04] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.04572148621082306
+[23/05/29 12:43:06] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.027216799557209015
+[23/05/29 12:43:07] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.040069520473480225
+[23/05/29 12:43:09] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.02347910776734352
+[23/05/29 12:43:10] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.05219722539186478
+[23/05/29 12:43:12] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.0695624053478241
+[23/05/29 12:43:13] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.050114136189222336
+[23/05/29 12:43:15] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.050088927149772644
+[23/05/29 12:43:16] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.04333437606692314
+[23/05/29 12:43:18] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.08979955315589905
+[23/05/29 12:43:19] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03154441714286804
+[23/05/29 12:43:21] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.04363354295492172
+[23/05/29 12:43:23] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.07640740275382996
+[23/05/29 12:43:24] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.04960639774799347
+[23/05/29 12:43:26] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.07298874855041504
+[23/05/29 12:43:27] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.03167323023080826
+[23/05/29 12:43:29] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.01427057757973671
+[23/05/29 12:43:30] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.033125896006822586
+[23/05/29 12:43:32] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.0542277991771698
+[23/05/29 12:43:33] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.0301184244453907
+[23/05/29 12:43:35] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.062316518276929855
+[23/05/29 12:43:36] [eata.py:  144]: block3.layer.0.bn2.weight grad: 0.0067743221297860146
+[23/05/29 12:43:38] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.06493169814348221
+[23/05/29 12:43:39] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.01952817291021347
+[23/05/29 12:43:41] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.06579427421092987
+[23/05/29 12:43:43] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.042879726737737656
+[23/05/29 12:43:44] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.04563241824507713
+[23/05/29 12:43:46] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.06390600651502609
+[23/05/29 12:43:47] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.021961938589811325
+[23/05/29 12:43:47] [cifar10c.py:   64]: error % [glass_blur5]: 31.63%
+[23/05/29 12:43:49] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.0075027309358119965
+[23/05/29 12:43:51] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.008017108775675297
+[23/05/29 12:43:52] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.006276368163526058
+[23/05/29 12:43:54] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.007206715643405914
+[23/05/29 12:43:55] [eata.py:  144]: block1.layer.0.bn2.weight grad: 0.007056972477585077
+[23/05/29 12:43:57] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.024994539096951485
+[23/05/29 12:43:58] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.028870660811662674
+[23/05/29 12:44:00] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.029526621103286743
+[23/05/29 12:44:01] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.01255086436867714
+[23/05/29 12:44:02] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.011116902343928814
+[23/05/29 12:44:04] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.050723519176244736
+[23/05/29 12:44:05] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.014717603102326393
+[23/05/29 12:44:07] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.005707593634724617
+[23/05/29 12:44:08] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.029294703155755997
+[23/05/29 12:44:10] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.022257961332798004
+[23/05/29 12:44:11] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.05017535015940666
+[23/05/29 12:44:13] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03339073061943054
+[23/05/29 12:44:14] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.012339906767010689
+[23/05/29 12:44:16] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.024212468415498734
+[23/05/29 12:44:17] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.019805068150162697
+[23/05/29 12:44:19] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.04690612107515335
+[23/05/29 12:44:20] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.010096890851855278
+[23/05/29 12:44:22] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.02093368023633957
+[23/05/29 12:44:23] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.024152299389243126
+[23/05/29 12:44:25] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.029374638572335243
+[23/05/29 12:44:26] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.014626657590270042
+[23/05/29 12:44:28] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.012396732345223427
+[23/05/29 12:44:29] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.01881389319896698
+[23/05/29 12:44:31] [eata.py:  144]: block1.layer.0.bn2.weight grad: 0.007173668127506971
+[23/05/29 12:44:32] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.032740943133831024
+[23/05/29 12:44:34] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.015741145238280296
+[23/05/29 12:44:35] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.009068109095096588
+[23/05/29 12:44:37] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.021729394793510437
+[23/05/29 12:44:38] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.006048067472875118
+[23/05/29 12:44:40] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.020659349858760834
+[23/05/29 12:44:41] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.015011627227067947
+[23/05/29 12:44:43] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.02960546314716339
+[23/05/29 12:44:44] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.005206164438277483
+[23/05/29 12:44:46] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.033908918499946594
+[23/05/29 12:44:47] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.02362324856221676
+[23/05/29 12:44:49] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.014200758188962936
+[23/05/29 12:44:50] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.024518318474292755
+[23/05/29 12:44:52] [eata.py:  144]: block1.layer.3.bn2.bias grad: -0.004228138830512762
+[23/05/29 12:44:53] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.014701181091368198
+[23/05/29 12:44:55] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.024370282888412476
+[23/05/29 12:44:57] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.03704032674431801
+[23/05/29 12:44:58] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.02006448060274124
+[23/05/29 12:45:00] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.008192591369152069
+[23/05/29 12:45:01] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.0165906623005867
+[23/05/29 12:45:03] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.036010950803756714
+[23/05/29 12:45:03] [cifar10c.py:   73]: error % [clean]: 13.56%
+[23/05/29 12:45:04] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.06502260267734528
+[23/05/29 12:45:06] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.04720531776547432
+[23/05/29 12:45:08] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.043068546801805496
+[23/05/29 12:45:09] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.04796554893255234
+[23/05/29 12:45:11] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.05441789701581001
+[23/05/29 12:45:12] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.01708434894680977
+[23/05/29 12:45:14] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.0391620397567749
+[23/05/29 12:45:16] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.06491133570671082
+[23/05/29 12:45:17] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.018905721604824066
+[23/05/29 12:45:19] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.07041917741298676
+[23/05/29 12:45:20] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.03044462576508522
+[23/05/29 12:45:22] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.04179242625832558
+[23/05/29 12:45:24] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.03381865471601486
+[23/05/29 12:45:25] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.0399150513112545
+[23/05/29 12:45:27] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.02916908636689186
+[23/05/29 12:45:29] [eata.py:  144]: block1.layer.0.bn2.bias grad: 0.009968957863748074
+[23/05/29 12:45:30] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.038505975157022476
+[23/05/29 12:45:32] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.031895507127046585
+[23/05/29 12:45:33] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.05699777975678444
+[23/05/29 12:45:35] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.00997972022742033
+[23/05/29 12:45:37] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.020925775170326233
+[23/05/29 12:45:38] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.01531221717596054
+[23/05/29 12:45:40] [eata.py:  144]: block1.layer.0.bn2.weight grad: -0.014387301169335842
+[23/05/29 12:45:41] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.044033218175172806
+[23/05/29 12:45:43] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.0338299497961998
+[23/05/29 12:45:45] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03367707505822182
+[23/05/29 12:45:46] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.030229929834604263
+[23/05/29 12:45:48] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.0323210172355175
+[23/05/29 12:45:50] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.009772023186087608
+[23/05/29 12:45:51] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.02366279810667038
+[23/05/29 12:45:53] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.024469036608934402
+[23/05/29 12:45:54] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.04349663853645325
+[23/05/29 12:45:56] [eata.py:  144]: block1.layer.0.bn2.weight grad: 0.00762528320774436
+[23/05/29 12:45:58] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.04541978985071182
+[23/05/29 12:45:59] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03389772027730942
+[23/05/29 12:46:01] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.06013772636651993
+[23/05/29 12:46:03] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.020203806459903717
+[23/05/29 12:46:04] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.015938153490424156
+[23/05/29 12:46:06] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.013858102262020111
+[23/05/29 12:46:07] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.01130003109574318
+[23/05/29 12:46:09] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.026811808347702026
+[23/05/29 12:46:11] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.01772991567850113
+[23/05/29 12:46:12] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.029003415256738663
+[23/05/29 12:46:14] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.029685556888580322
+[23/05/29 12:46:16] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.06427668035030365
+[23/05/29 12:46:17] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.014805294573307037
+[23/05/29 12:46:19] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.016725193709135056
+[23/05/29 12:46:21] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.059011127799749374
+[23/05/29 12:46:22] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.0389995314180851
+[23/05/29 12:46:24] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.0070326849818229675
+[23/05/29 12:46:24] [cifar10c.py:   64]: error % [gaussian_noise5]: 28.65%
+[23/05/29 12:46:25] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.009013324044644833
+[23/05/29 12:46:27] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.014871055260300636
+[23/05/29 12:46:28] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.012096362188458443
+[23/05/29 12:46:30] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.017045028507709503
+[23/05/29 12:46:31] [eata.py:  144]: block2.layer.0.bn1.bias grad: 0.006605082657188177
+[23/05/29 12:46:33] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.017866160720586777
+[23/05/29 12:46:34] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.033892225474119186
+[23/05/29 12:46:36] [eata.py:  144]: block2.layer.1.bn2.weight grad: 0.008305029012262821
+[23/05/29 12:46:38] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.018316861242055893
+[23/05/29 12:46:39] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.01539546437561512
+[23/05/29 12:46:41] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.021210135892033577
+[23/05/29 12:46:42] [eata.py:  144]: block2.layer.0.bn2.weight grad: 0.008001158013939857
+[23/05/29 12:46:44] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.08707384765148163
+[23/05/29 12:46:45] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.022577401250600815
+[23/05/29 12:46:47] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.02644079551100731
+[23/05/29 12:46:48] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.013410750776529312
+[23/05/29 12:46:50] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.02061585895717144
+[23/05/29 12:46:51] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.028950752690434456
+[23/05/29 12:46:53] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.025351963937282562
+[23/05/29 12:46:54] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.056687865406274796
+[23/05/29 12:46:56] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03909963741898537
+[23/05/29 12:46:57] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.022258605808019638
+[23/05/29 12:46:59] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.0450664646923542
+[23/05/29 12:47:01] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.035465504974126816
+[23/05/29 12:47:02] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.022847257554531097
+[23/05/29 12:47:04] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.017002038657665253
+[23/05/29 12:47:05] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.00810940656810999
+[23/05/29 12:47:07] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.02441117912530899
+[23/05/29 12:47:08] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.013087366707623005
+[23/05/29 12:47:10] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.017714068293571472
+[23/05/29 12:47:11] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.015842009335756302
+[23/05/29 12:47:13] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.016062121838331223
+[23/05/29 12:47:14] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.01807655766606331
+[23/05/29 12:47:16] [eata.py:  144]: block1.layer.0.bn2.weight grad: -0.004025158938020468
+[23/05/29 12:47:17] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.024996764957904816
+[23/05/29 12:47:19] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.018679356202483177
+[23/05/29 12:47:20] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.028074298053979874
+[23/05/29 12:47:22] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.024300262331962585
+[23/05/29 12:47:24] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.01614774577319622
+[23/05/29 12:47:25] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.005893027409911156
+[23/05/29 12:47:27] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.007780242711305618
+[23/05/29 12:47:28] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.04114261642098427
+[23/05/29 12:47:30] [eata.py:  144]: block2.layer.0.bn1.bias grad: 0.0047119129449129105
+[23/05/29 12:47:31] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.013600748032331467
+[23/05/29 12:47:33] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.007665699347853661
+[23/05/29 12:47:34] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.02926630526781082
+[23/05/29 12:47:36] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.007655098102986813
+[23/05/29 12:47:37] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.0267978273332119
+[23/05/29 12:47:39] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.005323321558535099
+[23/05/29 12:47:40] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.026018086820840836
+[23/05/29 12:47:40] [cifar10c.py:   73]: error % [clean]: 13.57%
+[23/05/29 12:47:42] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.043091535568237305
+[23/05/29 12:47:44] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.015283599495887756
+[23/05/29 12:47:45] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.030034318566322327
+[23/05/29 12:47:47] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03324094042181969
+[23/05/29 12:47:49] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.036320753395557404
+[23/05/29 12:47:50] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.022151287645101547
+[23/05/29 12:47:52] [eata.py:  144]: block2.layer.0.bn1.bias grad: 0.007253879215568304
+[23/05/29 12:47:54] [eata.py:  144]: block2.layer.0.bn2.weight grad: 0.006921090185642242
+[23/05/29 12:47:55] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.02110644057393074
+[23/05/29 12:47:57] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03938966989517212
+[23/05/29 12:47:59] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03484854847192764
+[23/05/29 12:48:00] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.019327055662870407
+[23/05/29 12:48:02] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.046583808958530426
+[23/05/29 12:48:03] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.04142752289772034
+[23/05/29 12:48:05] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.06272192299365997
+[23/05/29 12:48:07] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.046289071440696716
+[23/05/29 12:48:08] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.008965750224888325
+[23/05/29 12:48:10] [eata.py:  144]: block1.layer.0.bn2.weight grad: 0.011848999187350273
+[23/05/29 12:48:12] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.007011599838733673
+[23/05/29 12:48:13] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.026685059070587158
+[23/05/29 12:48:15] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.021138638257980347
+[23/05/29 12:48:17] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.01630202867090702
+[23/05/29 12:48:18] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.023812703788280487
+[23/05/29 12:48:20] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.018201183527708054
+[23/05/29 12:48:21] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.04427095502614975
+[23/05/29 12:48:23] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.03154914826154709
+[23/05/29 12:48:25] [eata.py:  144]: block1.layer.0.bn2.bias grad: -0.007442323956638575
+[23/05/29 12:48:26] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.03562917932868004
+[23/05/29 12:48:28] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.035854317247867584
+[23/05/29 12:48:30] [eata.py:  144]: block1.layer.0.bn2.weight grad: 0.01121679600328207
+[23/05/29 12:48:31] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.018136076629161835
+[23/05/29 12:48:33] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.06259483844041824
+[23/05/29 12:48:35] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.015900691971182823
+[23/05/29 12:48:36] [eata.py:  144]: block2.layer.2.bn2.weight grad: 0.005647703539580107
+[23/05/29 12:48:38] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.04359438642859459
+[23/05/29 12:48:39] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.034387849271297455
+[23/05/29 12:48:41] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.0483485646545887
+[23/05/29 12:48:43] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.018907824531197548
+[23/05/29 12:48:44] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.040736451745033264
+[23/05/29 12:48:46] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.040360867977142334
+[23/05/29 12:48:48] [eata.py:  144]: block1.layer.0.bn2.weight grad: -0.012349792756140232
+[23/05/29 12:48:49] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.038020409643650055
+[23/05/29 12:48:51] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.054471053183078766
+[23/05/29 12:48:53] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.02292352169752121
+[23/05/29 12:48:54] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.017998408526182175
+[23/05/29 12:48:56] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.019317589700222015
+[23/05/29 12:48:58] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.049561429768800735
+[23/05/29 12:48:59] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.05783136934041977
+[23/05/29 12:49:01] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.05001169443130493
+[23/05/29 12:49:02] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.02674981951713562
+[23/05/29 12:49:02] [cifar10c.py:   64]: error % [shot_noise5]: 25.80%
+[23/05/29 12:49:04] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.014031266793608665
+[23/05/29 12:49:05] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.008148692548274994
+[23/05/29 12:49:07] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.03016604483127594
+[23/05/29 12:49:09] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.015068113803863525
+[23/05/29 12:49:10] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.014201488345861435
+[23/05/29 12:49:12] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.009866437874734402
+[23/05/29 12:49:13] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.009588386863470078
+[23/05/29 12:49:15] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.007767208851873875
+[23/05/29 12:49:16] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.008494515903294086
+[23/05/29 12:49:18] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.009296104311943054
+[23/05/29 12:49:19] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.027826670557260513
+[23/05/29 12:49:21] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.0326196551322937
+[23/05/29 12:49:22] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.00670428154990077
+[23/05/29 12:49:24] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.010066760703921318
+[23/05/29 12:49:25] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.02151014283299446
+[23/05/29 12:49:27] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.009989693760871887
+[23/05/29 12:49:29] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.029923250898718834
+[23/05/29 12:49:30] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.011945962905883789
+[23/05/29 12:49:32] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.016305197030305862
+[23/05/29 12:49:33] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.039490707218647
+[23/05/29 12:49:35] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.012745477259159088
+[23/05/29 12:49:36] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.01238970085978508
+[23/05/29 12:49:38] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.017776113003492355
+[23/05/29 12:49:39] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.02873568795621395
+[23/05/29 12:49:41] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.023811521008610725
+[23/05/29 12:49:42] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.037706613540649414
+[23/05/29 12:49:44] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.014782615005970001
+[23/05/29 12:49:45] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.007525943219661713
+[23/05/29 12:49:47] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.022035280242562294
+[23/05/29 12:49:49] [eata.py:  144]: block2.layer.0.bn1.bias grad: -0.00581540958955884
+[23/05/29 12:49:50] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.007352522108703852
+[23/05/29 12:49:52] [eata.py:  144]: block1.layer.3.bn2.weight grad: -0.007178576197475195
+[23/05/29 12:49:53] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.024151012301445007
+[23/05/29 12:49:55] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.020031556487083435
+[23/05/29 12:49:56] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.016023771837353706
+[23/05/29 12:49:58] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.020971521735191345
+[23/05/29 12:49:59] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.01842762902379036
+[23/05/29 12:50:01] [eata.py:  144]: block1.layer.0.bn1.weight grad: 0.017339341342449188
+[23/05/29 12:50:02] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.028125781565904617
+[23/05/29 12:50:04] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.014924510382115841
+[23/05/29 12:50:05] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.02340872213244438
+[23/05/29 12:50:07] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.02086685784161091
+[23/05/29 12:50:09] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.011451423168182373
+[23/05/29 12:50:10] [eata.py:  144]: block1.layer.0.bn1.weight grad: -0.01850139908492565
+[23/05/29 12:50:12] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.00982898473739624
+[23/05/29 12:50:13] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.009774630889296532
+[23/05/29 12:50:15] [eata.py:  144]: block1.layer.0.bn1.bias grad: -0.013063199818134308
+[23/05/29 12:50:16] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.023559292778372765
+[23/05/29 12:50:18] [eata.py:  144]: block1.layer.0.bn1.bias grad: 0.023115845397114754
+[23/05/29 12:50:19] [eata.py:  144]: block1.layer.0.bn2.bias grad: -0.00443316949531436
+[23/05/29 12:50:19] [cifar10c.py:   73]: error % [clean]: 15.58%
